@@ -1,29 +1,55 @@
-import Vue from 'vue'
-import VueRouter, { RouteConfig } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Vue from 'vue';
+import Router from 'vue-router';
+import store from '../store/store';
 
-Vue.use(VueRouter)
+import TopFlights from '../views/TopFlights.vue';
+import TopWeather from '../views/TopWeather.vue';
+import MyFavorites from '../views/MyFavorites.vue';
 
-const routes: Array<RouteConfig> = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+
+Vue.use(Router);
+
+class RouteMeta {
+  title: string;
+
+constructor({title}: { title: string }) {
+  this.title = title;
   }
-]
+}
 
-const router = new VueRouter({
+
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
-})
+  routes: [
+    {
+      path: '/',
+      name: 'top-flights',
+      component: TopFlights,
+      meta: new RouteMeta({ title: 'TopFlight' })
+      
+    },
+    {
+      path: '/top-weather',
+      name: 'top-weather',
+      component: TopWeather,
+      meta: new RouteMeta({ title: 'TopWeather' })
+    },
+    {
+      path: '/my-favorites',
+      name: 'my-favorites',
+      component: MyFavorites,
+      meta: new RouteMeta({ title: 'MyFavorite' })
+    }
+  ]
+});
 
-export default router
+// This callback runs before every route change, including on initial load
+router.beforeEach((to, from, next) => {
+
+  const routeMeta = to.meta as RouteMeta;
+  store.dispatch('topToolbar/changeTitle', routeMeta.title);
+  next();
+});
+
+export default router;
