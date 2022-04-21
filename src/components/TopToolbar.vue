@@ -1,65 +1,63 @@
 <template>
   <div>
-      <v-navigation-drawer
+
+    <v-navigation-drawer
       app
       fixed
       v-model="showMenu"
 
-      >
-        <v-list dense>
-            <v-list-item @click="doNothing">
-                <v-list-item-action>
-                    <v-icon>sunny_snowing</v-icon>
-                </v-list-item-action>
-                <v-list-item-content>
-                    <v-list-item-title>Weather</v-list-item-title>
-                </v-list-item-content>
-            </v-list-item>
-            <v-list-item @click="doNothing">
-                <v-list-item-action>
-                    <v-icon>flight_land</v-icon>
-                </v-list-item-action>
-                <v-list-item-content>
-                    <v-list-item-title>flight</v-list-item-title>
-                </v-list-item-content>
-            </v-list-item>
-        </v-list>
-      </v-navigation-drawer>
+    >
+      <v-list dense>
+        <v-list-item @click="doNothing">
+          <v-list-item-action>
+            <v-icon>settings</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Settings</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item @click="doNothing">
+          <v-list-item-action>
+            <v-icon>help</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Help</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
 
-         <v-app-bar
-            app
-            fixed
-            dark
-            color="primary"
-        >
-
+    <v-app-bar
+      app
+      fixed
+      dark
+      color="primary"
+    >
       <v-app-bar-nav-icon @click.stop="toggleMenu"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Flights and Weather</v-toolbar-title>
+      <v-toolbar-title>{{ title }}</v-toolbar-title>
 
-      </v-app-bar>
+    </v-app-bar>
 
   </div>
 </template>
 
 <script lang="ts">
-    import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'vue-property-decorator';
+import { Getter } from 'vuex-class';
 
+@Component
+export default class TopToolbar extends Vue {
+  @Getter('title', { namespace: 'topToolbar' }) title!: string;
 
-    @Component
-    export default class TopToolbar extends Vue {
-        showMenu: boolean = false;
+  showMenu = false;
 
-        toggleMenu(): void {
-            this.showMenu = !this.showMenu;
-        }
+  toggleMenu (): void {
+    this.showMenu = !this.showMenu;
+  }
 
-        doNothing(): void {
-            console.log('nothig')
-        }
-    }
+  doNothing (): void {
+    console.info('Not doing anything!');
+  }
+}
 </script>
-
-<style>
-
-</style>

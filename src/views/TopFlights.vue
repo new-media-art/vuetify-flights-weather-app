@@ -1,31 +1,29 @@
 <template>
-    <div>
-        <NewList :myFlights="myFlights"></NewList>
-    </div>
+  <div>
+    <FlightList :FlightsX="FlightsX"></FlightList>
+  </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import flightService from '../services/flightService'
-import NewList from '../components/NewList.vue'
-import { FlightType, MyFlights } from '../Types';
-
-
+import { Component, Vue } from "vue-property-decorator";
+import flightService from "../services/flightService";
+import FlightList from "../components/FlightList.vue";
+import { FlightOption, BestFlights } from "@/types";
 
 @Component({
-    components: {
-        NewList
-    }
+  components: {
+    FlightList,
+  },
 })
 export default class TopFlights extends Vue {
-    myFlights: MyFlights[] = [];
+  FlightsX: BestFlights[] = [];
 
-    mounted() {
-        flightService.getFlightsByType(FlightType.TopFlight)
-        .then((myFlights: MyFlights[]) => {
-            this.myFlights = myFlights
-        })
-    }
+  mounted() {
+    flightService
+      .getFlights(FlightOption.TopFlight)
+      .then((FlightsX: BestFlights[]) => {
+        this.FlightsX = FlightsX;
+      });
+  }
 }
 </script>
-

@@ -1,7 +1,7 @@
 <template>
   <v-app>
-   
-   <TopToolbar></TopToolbar>
+
+    <TopToolbar></TopToolbar>
 
     <v-main>
       <router-view></router-view>
@@ -13,20 +13,16 @@
 </template>
 
 <script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import TopToolbar from './components/TopToolbar.vue';
+import BottomNav from './components/BottomNav.vue';
 
-import { Component, Vue } from 'vue-property-decorator'
-import TopToolbar from './components/TopToolbar.vue'
-import BottomNav from './components/BottomNav.vue'
-
-
-  @Component({
-    components: {
-      TopToolbar,
-      BottomNav
-    }
-  })
-
+@Component({
+  components: {
+    TopToolbar,
+    BottomNav
+  }
+})
 export default class extends Vue {
-
 }
 </script>

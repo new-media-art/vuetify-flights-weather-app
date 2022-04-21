@@ -1,53 +1,59 @@
-import { FlightType, MyFlights } from '@/Types';
+import { FlightOption, BestFlights } from "@/types";
 
-const url = '/data/flights.json';
+const url = "/data/flights.json";
 
-class flightService {
-  getFlightsByType (FlightType: FlightType): Promise<MyFlights[]> {
+class FlightService {
+  getFlights(flightType: FlightOption): Promise<BestFlights[]> {
     return fetch(url)
       .then((response) => {
         return response.json();
       })
       .then((serverFlights) => {
-        const MyFlightss = serverFlights
-          .filter((serverFlight: any) => serverFlight.FlightType === FlightType)
-          .map(flightService.map);
+        const FlightsX = serverFlights
+          .filter((serverFlight: any) => serverFlight.flightType === flightType)
+          .map(FlightService.map);
 
-        return MyFlightss;
+        return FlightsX;
       })
       .catch((e) => {
-        console.error('An error occurred retrieving the flights from ' + url, e);
+        console.error(
+          "An error occurred retrieving the flights from " + url,
+          e
+        );
       });
   }
 
-  getFavorites (): Promise<MyFlights[]> {
+  getFavorites(): Promise<BestFlights[]> {
     return fetch(url)
       .then((response) => {
         return response.json();
       })
       .then((serverFlights) => {
-        const MyFlights = serverFlights
+        const FlightsX = serverFlights
           .filter((serverFlight: any) => serverFlight.isFavourite === true)
-          .map(flightService.map);
+          .map(FlightService.map);
 
-        return MyFlights;
+        return FlightsX;
       })
       .catch((e) => {
-        console.error('An error occurred retrieving the news articles from ' + url, e);
+        console.error(
+          "An error occurred retrieving the flights from " + url,
+          e
+        );
       });
   }
 
-  private static map (serverFlight: any): MyFlights {
+  private static map(serverFlight: any): BestFlights {
     return {
       id: serverFlight.id,
       title: serverFlight.title,
       content: serverFlight.content,
       dateString: serverFlight.dateString,
       baseImageName: serverFlight.baseImageName,
-      flightType: serverFlight.FlightType,
-      isFavourite: serverFlight.isFavourite
-    } as MyFlights;
+      flightType: serverFlight.flightType,
+      isFavourite: serverFlight.isFavourite,
+    } as BestFlights;
   }
 }
 
-export default new flightService();
+export default new FlightService();

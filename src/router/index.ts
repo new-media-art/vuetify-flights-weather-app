@@ -1,54 +1,50 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import store from '../store/store';
+import Vue from "vue";
+import Router from "vue-router";
+import store from "../store";
 
-import TopFlights from '../views/TopFlights.vue';
-import TopWeather from '../views/TopWeather.vue';
-import MyFavorites from '../views/MyFavorites.vue';
-
+import TopFlights from "../views/TopFlights.vue";
+import CodeExamples from "../views/FlightExamples.vue";
+import MyFavorites from "../views/MyFavorites.vue";
 
 Vue.use(Router);
 
 class RouteMeta {
   title: string;
 
-constructor({title}: { title: string }) {
-  this.title = title;
+  constructor({ title }: { title: string }) {
+    this.title = title;
   }
 }
 
-
 const router = new Router({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
-      name: 'top-flights',
+      path: "/",
+      name: "top-stories",
       component: TopFlights,
-      meta: new RouteMeta({ title: 'TopFlight' })
-      
+      meta: new RouteMeta({ title: "Top Stories" }),
     },
     {
-      path: '/top-weather',
-      name: 'top-weather',
-      component: TopWeather,
-      meta: new RouteMeta({ title: 'TopWeather' })
+      path: "/code-examples",
+      name: "code-examples",
+      component: CodeExamples,
+      meta: new RouteMeta({ title: "Code Examples" }),
     },
     {
-      path: '/my-favorites',
-      name: 'my-favorites',
+      path: "/my-favorites",
+      name: "my-favorites",
       component: MyFavorites,
-      meta: new RouteMeta({ title: 'MyFavorite' })
-    }
-  ]
+      meta: new RouteMeta({ title: "Favorites" }),
+    },
+  ],
 });
 
 // This callback runs before every route change, including on initial load
 router.beforeEach((to, from, next) => {
-
   const routeMeta = to.meta as RouteMeta;
-  store.dispatch('topToolbar/changeTitle', routeMeta.title);
+  store.dispatch("topToolbar/changeTitle", routeMeta.title);
   next();
 });
 
