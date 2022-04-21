@@ -1,32 +1,53 @@
-import { FlightType, MyFlights } from '../Types';
+import { FlightType, MyFlights } from '@/Types';
 
-class FlightsService {
+const url = '/data/flights.json';
 
-  getFlightsByType(FlightType: FlightType): Promise<MyFlights[]> {
-
-    return fetch('/data/flights.json')
+class flightService {
+  getFlightsByType (FlightType: FlightType): Promise<MyFlights[]> {
+    return fetch(url)
       .then((response) => {
         return response.json();
       })
       .then((serverFlights) => {
-
-        const myFlights = serverFlights
+        const MyFlightss = serverFlights
           .filter((serverFlight: any) => serverFlight.FlightType === FlightType)
-          .map((serverFlight: any) => {
-            return {
-              id: serverFlight.id,
-              title: serverFlight.title,
-              content: serverFlight.content,
-              dateString: serverFlight.dateString,
-              baseImageName: serverFlight.baseImageName,
-              FlightType: serverFlight.FlightType,
-              isFavourite: serverFlight.isFavourite
-            } as MyFlights;
-          });
+          .map(flightService.map);
 
-        return myFlights;
+        return MyFlightss;
+      })
+      .catch((e) => {
+        console.error('An error occurred retrieving the flights from ' + url, e);
       });
+  }
+
+  getFavorites (): Promise<MyFlights[]> {
+    return fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((serverFlights) => {
+        const MyFlights = serverFlights
+          .filter((serverFlight: any) => serverFlight.isFavourite === true)
+          .map(flightService.map);
+
+        return MyFlights;
+      })
+      .catch((e) => {
+        console.error('An error occurred retrieving the news articles from ' + url, e);
+      });
+  }
+
+  private static map (serverFlight: any): MyFlights {
+    return {
+      id: serverFlight.id,
+      title: serverFlight.title,
+      content: serverFlight.content,
+      dateString: serverFlight.dateString,
+      baseImageName: serverFlight.baseImageName,
+      flightType: serverFlight.FlightType,
+      isFavourite: serverFlight.isFavourite
+    } as MyFlights;
   }
 }
 
-export default new FlightsService();
+export default new flightService();

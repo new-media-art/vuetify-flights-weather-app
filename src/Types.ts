@@ -4,7 +4,7 @@ export interface MyFlights {
     content: string;
     dateString: string;
     baseImageName: string;
-    FlightType: FlightType;
+    flightType: FlightType;
     isFavourite: boolean;
   }
   
