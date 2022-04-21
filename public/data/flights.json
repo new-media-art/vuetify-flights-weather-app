@@ -5,7 +5,7 @@
       "content": "Germany",
       "dateString": "22 Jan 2019",
       "baseImageName": "plane",
-      "articleType": "TOP_STORY",
+      "flightType": "TOP_FLIGHT",
       "isFavourite": true
     },
     {
@@ -14,7 +14,7 @@
       "content": "France",
       "dateString": "21 Jan 2019",
       "baseImageName": "plane",
-      "articleType": "CODE_EXAMPLE",
+      "flightType": "TOP_FLIGHT",
       "isFavourite": false
     },
     {
@@ -23,7 +23,7 @@
       "content": "Spain",
       "dateString": "20 Jan 2019",
       "baseImageName": "plane",
-      "articleType": "TOP_STORY",
+      "flightType": "TOP_FLIGHT",
       "isFavourite": false
     },
     {
@@ -32,7 +32,7 @@
       "content": "Spain",
       "dateString": "19 Jan 2019",
       "baseImageName": "plane",
-      "articleType": "CODE_EXAMPLE",
+      "flightType": "TOP_FLIGHT",
       "isFavourite": false
     },
     {
@@ -41,7 +41,7 @@
       "content": "Portugal",
       "dateString": "18 Jan 2019",
       "baseImageName": "plane",
-      "articleType": "TOP_STORY",
+      "flightType": "TOP_FLIGHT",
       "isFavourite": true
     },
     {
@@ -50,7 +50,7 @@
       "content": "Italia",
       "dateString": "17 Jan 2019",
       "baseImageName": "plane",
-      "articleType": "CODE_EXAMPLE",
+      "flightType": "TOP_FLIGHT",
       "isFavourite": false
     }
   ]
