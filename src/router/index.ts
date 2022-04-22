@@ -3,7 +3,7 @@ import Router from "vue-router";
 import store from "../store";
 
 import TopFlights from "../views/TopFlights.vue";
-import CodeExamples from "../views/FlightExamples.vue";
+import SunnyFlight from "../views/SunnyFlight.vue";
 import MyFavorites from "../views/MyFavorites.vue";
 
 Vue.use(Router);
@@ -22,15 +22,15 @@ const router = new Router({
   routes: [
     {
       path: "/",
-      name: "top-stories",
+      name: "top-flights",
       component: TopFlights,
-      meta: new RouteMeta({ title: "Top Stories" }),
+      meta: new RouteMeta({ title: "Top Flights" }),
     },
     {
-      path: "/code-examples",
-      name: "code-examples",
-      component: CodeExamples,
-      meta: new RouteMeta({ title: "Code Examples" }),
+      path: "/sunny-flight",
+      name: "sunny-flight",
+      component: SunnyFlight,
+      meta: new RouteMeta({ title: "Follow the Sun" }),
     },
     {
       path: "/my-favorites",

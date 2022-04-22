@@ -8,13 +8,13 @@
     color="primary"
   >
     <v-btn value="top" :to="{ path: '/'}">
-      <span>Top Stories</span>
-      <v-icon>thumb_up</v-icon>
+      <span>Top Flights</span>
+      <v-icon>airplane_ticket</v-icon>
     </v-btn>
 
-    <v-btn value="code" :to="{ name: 'code-examples'}">
-      <span>Code Examples</span>
-      <v-icon>code</v-icon>
+    <v-btn value="code" :to="{ name: 'sunny-flight'}">
+      <span>Follow the Sun</span>
+      <v-icon>wb_sunny</v-icon>
     </v-btn>
 
     <v-btn value="favorites" :to="{ name: 'my-favorites'}">

@@ -20,7 +20,7 @@ export default class TopFlights extends Vue {
 
   mounted() {
     flightService
-      .getFlights(FlightOption.FlightExample)
+      .getFlights(FlightOption.SunnyFlight)
       .then((FlightsX: BestFlights[]) => {
         this.FlightsX = FlightsX;
       });

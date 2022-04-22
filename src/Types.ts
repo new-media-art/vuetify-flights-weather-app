@@ -10,7 +10,7 @@ export interface BestFlights {
 
 export enum FlightOption {
   TopFlight = "TOP_FLIGHT",
-  FlightExample = "FLIGHT_EXAMPLE",
+  SunnyFlight = "SUNNY_FLIGHT",
 }
 
 // Store root state

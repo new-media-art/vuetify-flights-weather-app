@@ -2,24 +2,24 @@
   <div>
     <v-container fluid grid-list-lg>
       <v-layout row wrap>
-        <v-flex xs12 v-for="newsArticle in FlightsX" :key="newsArticle.id">
+        <v-flex xs12 v-for="flightx in FlightsX" :key="flightx.id">
           <v-card>
             <v-container fluid grid-list-lg>
               <v-layout row>
                 <v-flex xs9>
                   <div>
                     <div class="subheading font-weight-medium">
-                      {{ newsArticle.title }}
+                      {{ flightx.title }}
                     </div>
-                    <div>{{ newsArticle.dateString }}</div>
+                    <div>{{ flightx.dateString }}</div>
                   </div>
                 </v-flex>
                 <v-flex xs3>
                   <v-img
                     contain
-                    :src="`/thumbnails/${newsArticle.baseImageName}.png`"
-                    :srcset="`/thumbnails/${newsArticle.baseImageName}.png 1x,
-                             /thumbnails/${newsArticle.baseImageName}@2x.png 2x`"
+                    :src="`/thumbnails/${flightx.baseImageName}.png`"
+                    :srcset="`/thumbnails/${flightx.baseImageName}.png 1x,
+                             /thumbnails/${flightx.baseImageName}@2x.png 2x`"
                     height="72px"
                     transition="false"
                   ></v-img>

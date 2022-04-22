@@ -2,7 +2,7 @@ import { ActionTree, Module, MutationTree, GetterTree } from 'vuex';
 import { TopToolbarState, RootState } from '@/types';
 
 const state: TopToolbarState = {
-  title: 'Top Stories'
+  title: 'DESTINATION ONE'
 };
 
 export const getters: GetterTree<TopToolbarState, RootState> = {

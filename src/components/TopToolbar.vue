@@ -10,10 +10,10 @@
       <v-list dense>
         <v-list-item @click="doNothing">
           <v-list-item-action>
-            <v-icon>settings</v-icon>
+            <v-icon>person</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Settings</v-list-item-title>
+            <v-list-item-title>Profile</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item @click="doNothing">
