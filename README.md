@@ -1,4 +1,4 @@
-# vuetify-mobile-app
+# vuetify-flights and weather app
 
 ## Project setup
 ```
