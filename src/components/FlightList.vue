@@ -12,18 +12,24 @@
                       {{ flightx.title }}
                     </div>
                     <div>{{ flightx.dateString }}</div>
+                     <div class="">33°   €80</div>
+                     
                   </div>
+                  
                 </v-flex>
+
                 <v-flex xs3>
                   <v-img
                     contain
-                    :src="`/thumbnails/${flightx.baseImageName}.png`"
-                    :srcset="`/thumbnails/${flightx.baseImageName}.png 1x,
-                             /thumbnails/${flightx.baseImageName}@2x.png 2x`"
-                    height="72px"
+                    :src="`/thumbnails/${flightx.baseImageName}.jpg`"
+                    :srcset="`/thumbnails/${flightx.baseImageName}.jpg 1x,
+                             /thumbnails/${flightx.baseImageName}@2x.jpg 2x`"
+                    height="80px"
                     transition="false"
+                    
                   ></v-img>
                 </v-flex>
+                
               </v-layout>
             </v-container>
           </v-card>

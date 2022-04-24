@@ -1,46 +1,46 @@
 [
   {
     "id": 1,
-    "title": "Paris",
-    "content": "France",
+    "title": "Barcelona",
+    "content": "Spain",
     "dateString": "5 Mai 2022",
-    "baseImageName": "airplane-icon",
+    "baseImageName": "barcelona",
     "flightType": "TOP_FLIGHT",
     "isFavourite": true
   },
   {
     "id": 2,
-    "title": "Madrid",
-    "content": "Spain",
+    "title": "Istambul",
+    "content": "Turkey",
     "dateString": "2 July 2022",
-    "baseImageName": "airplane-icon",
-    "flightType": "SUNNY_FLIGHT",
+    "baseImageName": "istanbul",
+    "flightType": "TOP_FLIGHT",
     "isFavourite": false
   },
   {
     "id": 3,
-    "title": "Sevilla",
-    "content": "Spain",
+    "title": "lisabon",
+    "content": "Portugal",
     "dateString": "22 April 2022",
-    "baseImageName": "airplane-icon",
+    "baseImageName": "lisabon",
     "flightType": "TOP_FLIGHT",
     "isFavourite": false
   },
   {
     "id": 4,
-    "title": "Rome",
+    "title": "Palermo",
     "content": "Italy",
     "dateString": "19 Mai 2022",
-    "baseImageName": "airplane-icon",
+    "baseImageName": "palermo",
     "flightType": "SUNNY_FLIGHT",
     "isFavourite": false
   },
   {
     "id": 5,
-    "title": "Berlin",
+    "title": "Sevilla",
     "content": "Germany",
     "dateString": "18 Jan 2022",
-    "baseImageName": "airplane-icon",
+    "baseImageName": "sevilla",
     "flightType": "TOP_FLIGHT",
     "isFavourite": true
   },
