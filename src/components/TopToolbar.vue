@@ -29,12 +29,14 @@
 
     <v-app-bar
       app
+      dense
       fixed
       dark
       color="primary"
+      
     >
       <v-app-bar-nav-icon @click.stop="toggleMenu"></v-app-bar-nav-icon>
-
+     
       <v-toolbar-title>{{ title }}</v-toolbar-title>
 
     </v-app-bar>

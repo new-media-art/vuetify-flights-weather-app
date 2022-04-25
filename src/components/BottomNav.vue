@@ -1,5 +1,6 @@
 <template>
 
+  
   <v-bottom-navigation
     app
     fixed
